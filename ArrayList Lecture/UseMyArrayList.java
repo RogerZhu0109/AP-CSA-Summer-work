@@ -42,7 +42,9 @@ public class UseMyArrayList {
         // play around by setting list with different types of
         // objects and casting them
 
+        @SuppressWarnings("removal")
         Integer i = new Integer(210);
+        @SuppressWarnings("removal")
         Double d = new Double(3.14159);
         mya.add(i);
         mya.add(d);
