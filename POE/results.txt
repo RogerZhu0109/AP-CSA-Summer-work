@@ -1,0 +1,21 @@
+---------------------------
+Total Number of Words: 2335
+Total number of unique words: 802
+the is the most frequent word appearing: 168 times
+---------------------------
+SORTING
+Array Sort Time Elasped: 0.002
+BubbleSort Time Elasped: 0.007
+---------------------------
+Enter the Word to Search: the
+---------------------------
+hashmap search
+the WORD FOUND and occured 168 times
+Time Elasped: 7639792.0 nanoseconds
+Sequential Search
+the WORD FOUND and occured 168 times
+Time Elasped: 826750.0 nanoseconds
+Binary Search
+theWORD FOUND and occured 168 times
+Time Elasped: 18250.0 nanoseconds
+---------------------------
