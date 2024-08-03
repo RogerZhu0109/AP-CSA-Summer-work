@@ -67,12 +67,12 @@ public class poe {
         Arrays.sort(binaryWords);
         long binaryStart = System.nanoTime();
         int results = binarySearch(binaryWords, word, 0, binaryWords.length - 1);
+        long binaryEnd = System.nanoTime();
         if (results != 0) {
             System.out.println(word + "WORD FOUND and occured " + results + " times");
         } else {
             System.out.println("WORD NOT FOUND");
         }
-        long binaryEnd = System.nanoTime();
         System.out.println("Time Elasped: " + (double) (binaryEnd - binaryStart) + " nanoseconds");
 
         System.out.println("---------------------------");
