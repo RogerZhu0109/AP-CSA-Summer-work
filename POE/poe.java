@@ -161,14 +161,14 @@ public class poe {
         for (int i = 0; i < bubbleSort.length - 1; i++) {
             swapped = false;
             for (int j = 0; j < bubbleSort.length - i - 1; j++) {
-                if (bubbleSort[j].compareTo(bubbleSort[j + 1]) > 0) {
+                if (bubbleSort[j].compareTo(bubbleSort[j + 1]) > 0) { // if j follows j+1, swap
                     String temp = bubbleSort[j];
                     bubbleSort[j] = bubbleSort[j + 1];
                     bubbleSort[j + 1] = temp;
                     swapped = true;
                 }
             }
-            if (!swapped) {
+            if (!swapped) { // if no values were swapped, end early.
                 break;
             }
         }
