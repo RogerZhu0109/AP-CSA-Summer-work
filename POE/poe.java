@@ -7,23 +7,23 @@ public class poe {
         String frequentWord = "";
         int mostfrequentwordval = 0;
         HashMap<String, Integer> map = new HashMap<>();
-        ArrayList<String> uniqueWords = new ArrayList<>();
-        ArrayList<String> words = new ArrayList<>();
+        ArrayList<String> uniqueWords = new ArrayList<>(); // unique words
+        ArrayList<String> words = new ArrayList<>(); // all words
         Scanner scanner = new Scanner(
                 new File("/Users/rogerzhu/Documents/APCSA/AP-CSA-Summer-work/POE/poemodified.txt"));
         while (scanner.hasNext()) {
             String str = scanner.next();
-            // str = str.replace(";", "").replace("--", "").toLowerCase(); // get rid of
             // puncuation
-            str = str.replace(";", "").toLowerCase().replaceAll("^-+|-+$", "");
+            str = str.replace(";", "").toLowerCase().replaceAll("^-+|-+$", ""); // replaces semicolons and dashes at
+                                                                                // beginning and end of words
             if (str.trim().isEmpty()) {
                 continue; // if word is empty once you trim empty space, skip iteration
             }
             numOfWords++;
-            if (map.containsKey(str)) {
+            if (map.containsKey(str)) { // word exists in the hashmap already
                 map.put(str, map.get(str) + 1);
                 words.add(str);
-            } else {
+            } else { // unique word
                 map.put(str, 1);
                 uniqueWords.add(str);
                 words.add(str);
@@ -38,35 +38,45 @@ public class poe {
         System.out.println("Total Number of Words: " + numOfWords);
         System.out.println("Total number of unique words: " + map.size());
         System.out.println(frequentWord + " is the most frequent word appearing: " + mostfrequentwordval + " times");
-        sort(uniqueWords);
+
+        sort(uniqueWords); // sort
 
         Scanner reader = new Scanner(System.in);
         System.out.print("Enter the Word to Search: ");
         String word = reader.nextLine().toLowerCase();
         reader.close();
-        search(words, map, word);
+
+        search(words, map, word); // search
     }
 
     public static void search(ArrayList<String> list, HashMap<String, Integer> map, String word) {
         System.out.println("---------------------------");
         System.out.println("hashmap search");
         long start = System.nanoTime();
+
         hashmapSearch(map, word);
+
         long finish = System.nanoTime();
         System.out.println("Time Elasped: " + (double) (finish - start) + " nanoseconds");
 
         System.out.println("Sequential Search");
         String[] sequentialWords = list.toArray(new String[list.size()]);
         long seqStart = System.nanoTime();
+
         sequentialSearch(sequentialWords, word);
+
         long seqEnd = System.nanoTime();
         System.out.println("Time Elasped: " + (double) (seqEnd - seqStart) + " nanoseconds");
 
         System.out.println("Binary Search");
         String[] binaryWords = list.toArray(new String[list.size()]);
+
         Arrays.sort(binaryWords);
+
         long binaryStart = System.nanoTime();
+
         int results = binarySearch(binaryWords, word, 0, binaryWords.length - 1);
+
         long binaryEnd = System.nanoTime();
         if (results != 0) {
             System.out.println(word + "WORD FOUND and occured " + results + " times");
