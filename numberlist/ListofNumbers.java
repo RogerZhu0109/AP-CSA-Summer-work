@@ -3,12 +3,12 @@ import java.util.*;
 public class ListofNumbers {
     private Random rand = new Random();
     private ArrayList<Integer> list;
-    private int size;
+    private int size; // size of array
     private HashMap<Integer, Integer> numOcc = new HashMap<>();
 
     public ListofNumbers(int size) {
         list = new ArrayList<Integer>();
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= size; i++) { // initialize hashmap
             numOcc.put(i, 0);
         }
         this.size = size;
@@ -34,7 +34,7 @@ public class ListofNumbers {
         }
     }
 
-    public void printMode() {
+    public void printMode() { // iterate through and find highest occurence
         int maxval = 0;
         int mode = 0;
         for (int i = 1; i <= size; i++) {
